@@ -1,7 +1,7 @@
 import requests
-
-BASE_URL = "http://127.0.0.1:9000"
+import os
+BASE_URL = os.getenv("BASE_URL", "http://127.0.0.1:9000")
 
 def test_health():
-    response = requests.get(f"{BASE_URL}/health")
-    assert response.status_code == 200
+    r = requests.get(f"{BASE_URL}/health", timeout=10)
+    assert r.status_code.status_code == 200
