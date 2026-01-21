@@ -1,10 +1,7 @@
-import os
-import pytest
 import requests
+import pytest
 
-# Se estiver rodando no GitHub Actions, pula os testes
-if os.getenv("CI") == "true":
-    pytest.skip("Sem API rodando no CI", allow_module_level=True)
+pytestmark = pytest.mark.integration
 
 BASE_URL = "http://127.0.0.1:9000"
 

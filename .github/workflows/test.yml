@@ -46,6 +46,4 @@ jobs:
           PY
 
       - name: Run tests
-        env:
-          BASE_URL: http://127.0.0.1:9000
-        run: pytest -v
+        run: pytest -m "not integration" -v
